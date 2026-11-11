@@ -15,5 +15,6 @@ jobs:
       - run: pip install -r requirements.txt
       - run: ruff check app tests --select E4,E7,E9,F
       - run: python -m app.bootstrap
-      - run: pytest -q
+      - run: python -m pytest -q
       - run: docker build -t supply-chain-intelligence:test .
+
