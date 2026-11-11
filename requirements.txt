@@ -1,0 +1,11 @@
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+pandas>=2.2,<3
+pyspark>=3.5,<4
+scikit-learn>=1.5,<2
+joblib>=1.4,<2
+pydantic>=2,<3
+httpx>=0.27,<1
+openai>=1.50,<3
+pytest>=8,<10
+ruff>=0.8,<1

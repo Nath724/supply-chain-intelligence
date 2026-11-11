@@ -1,0 +1,31 @@
+{
+  "pyspark_pipeline": {
+    "status": "blocked",
+    "reason": "pyspark is not installed and package download is unavailable"
+  },
+  "docker_compose": {
+    "status": "blocked",
+    "reason": "docker executable unavailable"
+  },
+  "idempotency": {
+    "status": "blocked",
+    "reason": "cannot execute ingestion twice without PySpark"
+  },
+  "live_genai": {
+    "status": "blocked",
+    "reason": "OPENAI_API_KEY not configured"
+  },
+  "genai_tool_dispatch_mock": {
+    "status": "passed",
+    "note": "mocked HTTP tool dispatch, not live LLM"
+  },
+  "existing_serving_database": {
+    "status": "inspected",
+    "table_row_counts": {
+      "ports": 25,
+      "shipments": 4849,
+      "port_events": 24897
+    },
+    "note": "existing artifact only; not proof of new PySpark execution"
+  }
+}

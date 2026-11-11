@@ -1,0 +1,39 @@
+{
+  "test_status": "passed",
+  "test_runtime_s": 6.46,
+  "benchmark_type": "in-process FastAPI TestClient; not production load testing",
+  "endpoints": {
+    "/health": {
+      "requests": 30,
+      "median_ms": 1.01,
+      "p95_ms": 2.38,
+      "max_ms": 2.85
+    },
+    "/shipments?page_size=10": {
+      "requests": 30,
+      "median_ms": 1.69,
+      "p95_ms": 2.24,
+      "max_ms": 4.52
+    },
+    "/shipments/SHP-00421": {
+      "requests": 30,
+      "median_ms": 1.38,
+      "p95_ms": 2.29,
+      "max_ms": 2.41
+    },
+    "/data-quality/report": {
+      "requests": 30,
+      "median_ms": 1.39,
+      "p95_ms": 2.29,
+      "max_ms": 3.96
+    },
+    "/predict-delay": {
+      "requests": 30,
+      "median_ms": 10.05,
+      "p95_ms": 15.96,
+      "max_ms": 16.05
+    }
+  },
+  "spark_pipeline_verified": false,
+  "docker_verified": false
+}

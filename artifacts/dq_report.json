@@ -1,0 +1,258 @@
+{
+  "row_counts": {
+    "ports": 25,
+    "shipments": 5028,
+    "port_events": 25000
+  },
+  "checks": [
+    {
+      "table": "ports",
+      "check": "duplicate_identifier",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "deduplicate deterministically; retain first occurrence"
+    },
+    {
+      "table": "ports",
+      "check": "missing_identifier",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine"
+    },
+    {
+      "table": "shipments",
+      "check": "duplicate_identifier",
+      "rows_affected": 28,
+      "percentage": 0.56,
+      "severity": "critical",
+      "recommended_action": "deduplicate deterministically; retain first occurrence"
+    },
+    {
+      "table": "shipments",
+      "check": "missing_identifier",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine"
+    },
+    {
+      "table": "port_events",
+      "check": "duplicate_identifier",
+      "rows_affected": 103,
+      "percentage": 0.41,
+      "severity": "critical",
+      "recommended_action": "deduplicate deterministically; retain first occurrence"
+    },
+    {
+      "table": "port_events",
+      "check": "missing_identifier",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine"
+    },
+    {
+      "table": "ports",
+      "check": "missing_country",
+      "rows_affected": 1,
+      "percentage": 4.0,
+      "severity": "warning",
+      "recommended_action": "flag and enrich from reference"
+    },
+    {
+      "table": "ports",
+      "check": "missing_region",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "flag and enrich from reference"
+    },
+    {
+      "table": "ports",
+      "check": "missing_timezone",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "flag and enrich from reference"
+    },
+    {
+      "table": "ports",
+      "check": "invalid_congestion",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "flag; exclude from congestion features"
+    },
+    {
+      "table": "shipments",
+      "check": "unknown_origin_port",
+      "rows_affected": 42,
+      "percentage": 0.84,
+      "severity": "critical",
+      "recommended_action": "quarantine shipment"
+    },
+    {
+      "table": "shipments",
+      "check": "unknown_destination_port",
+      "rows_affected": 55,
+      "percentage": 1.09,
+      "severity": "critical",
+      "recommended_action": "quarantine shipment"
+    },
+    {
+      "table": "shipments",
+      "check": "same_origin_destination",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "flag for investigation"
+    },
+    {
+      "table": "shipments",
+      "check": "missing_cargo_type",
+      "rows_affected": 15,
+      "percentage": 0.3,
+      "severity": "warning",
+      "recommended_action": "preserve null; impute only for model"
+    },
+    {
+      "table": "shipments",
+      "check": "missing_weight_tons",
+      "rows_affected": 73,
+      "percentage": 1.45,
+      "severity": "warning",
+      "recommended_action": "preserve null; impute only for model"
+    },
+    {
+      "table": "shipments",
+      "check": "missing_status",
+      "rows_affected": 54,
+      "percentage": 1.07,
+      "severity": "warning",
+      "recommended_action": "preserve null; impute only for model"
+    },
+    {
+      "table": "shipments",
+      "check": "nonpositive_container_count",
+      "rows_affected": 23,
+      "percentage": 0.46,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid measure"
+    },
+    {
+      "table": "shipments",
+      "check": "nonpositive_weight_tons",
+      "rows_affected": 36,
+      "percentage": 0.72,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid measure"
+    },
+    {
+      "table": "shipments",
+      "check": "invalid_booking_date",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid timestamp"
+    },
+    {
+      "table": "shipments",
+      "check": "invalid_planned_departure",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid timestamp"
+    },
+    {
+      "table": "shipments",
+      "check": "invalid_actual_departure",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid timestamp"
+    },
+    {
+      "table": "shipments",
+      "check": "invalid_planned_arrival",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid timestamp"
+    },
+    {
+      "table": "shipments",
+      "check": "invalid_actual_arrival",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine invalid timestamp"
+    },
+    {
+      "table": "shipments",
+      "check": "planned_arrival_before_departure",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine"
+    },
+    {
+      "table": "shipments",
+      "check": "booking_after_planned_departure",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "flag; exclude from model training"
+    },
+    {
+      "table": "shipments",
+      "check": "actual_arrival_before_departure",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine"
+    },
+    {
+      "table": "port_events",
+      "check": "unknown_port",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "quarantine event"
+    },
+    {
+      "table": "port_events",
+      "check": "missing_event_type",
+      "rows_affected": 140,
+      "percentage": 0.56,
+      "severity": "warning",
+      "recommended_action": "flag"
+    },
+    {
+      "table": "port_events",
+      "check": "missing_notes",
+      "rows_affected": 1913,
+      "percentage": 7.65,
+      "severity": "info",
+      "recommended_action": "retain; optional field"
+    },
+    {
+      "table": "port_events",
+      "check": "negative_delay_minutes",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "warning",
+      "recommended_action": "flag for investigation"
+    },
+    {
+      "table": "port_events",
+      "check": "invalid_event_timestamp",
+      "rows_affected": 0,
+      "percentage": 0.0,
+      "severity": "critical",
+      "recommended_action": "quarantine"
+    }
+  ],
+  "notes": "Checks are not mutually exclusive; totals must not be added."
+}

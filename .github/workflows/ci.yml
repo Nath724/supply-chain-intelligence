@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: pip install -r requirements.txt
+      - run: ruff check app tests --select E4,E7,E9,F
+      - run: python -m app.bootstrap
+      - run: pytest -q
+      - run: docker build -t supply-chain-intelligence:test .
